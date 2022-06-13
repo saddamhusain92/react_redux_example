@@ -1,0 +1,27 @@
+import logo from './logo.svg';
+import './App.css';
+import { useEffect, useState } from 'react';
+import {AiFillLike} from 'react-icons/ai'
+
+function App() {
+  const[user,setUser] = useState(0)
+  const[like,setLike] = useState(Number(localStorage.getItem("like")))
+  const result = localStorage.getItem('like')
+  const mylike =()=>{
+  setLike(like+1)
+  }
+  useEffect(()=>{
+    localStorage.setItem("like",like)
+  })
+ 
+  return (
+    <div className="App">
+      <h1>Post</h1>
+      {like}<br></br>
+     
+      <div onClick={mylike} style={{cursor:"pointer"}}><AiFillLike/></div>
+    </div>
+  );
+}
+
+export default App;
